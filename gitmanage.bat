@@ -5,5 +5,7 @@ REM ---------------------------------Author Comments^
 SET gitcommand=git --git-dir=<PATHPOINTED>\.git --work-tree=<PATHPOINTED> status
 REM ---------------------------------Global Variable^
 CALL %gitcommand%
+for /f "phrases" %%i in ('%gitcommand% ^| findstr "modified:"') do ^
+  SET concurrence=%%i
 REM ---------------------------------Main process^
 PAUSE
